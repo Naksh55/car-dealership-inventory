@@ -35,7 +35,7 @@ car-dealership-inventory/
 │   │   ├── security.py        # Password hashing, JWT creation/decoding
 │   │   ├── dependencies.py    # Auth guards (get_current_user, require_admin)
 │   │   ├── database.py        # DB engine/session setup
-│   │   ├── main.py            # FastAPI app entrypoint
+│   │   ├── main.py            # FastAPI app entrypoint (incl. CORS config)
 │   │   ├── routes/
 │   │   │   ├── auth.py        # /api/auth/register, /api/auth/login
 │   │   │   └── vehicles.py    # /api/vehicles/* (CRUD, search, purchase, restock)
@@ -43,12 +43,29 @@ car-dealership-inventory/
 │   │       ├── test_auth.py
 │   │       └── test_vehicles.py
 │   └── requirements.txt
-└── frontend/
-    └── src/
-        ├── api/client.js           # Axios instance with JWT interceptor
-        ├── context/AuthContext.jsx # Login/register/logout state
-        ├── pages/                  # Login, Register, Dashboard
-        └── components/             # VehicleCard, SearchBar, VehicleForm, Toast, etc.
+├── frontend/
+│   └── src/
+│       ├── api/
+│       │   └── client.js           # Axios instance with JWT interceptor
+│       ├── context/
+│       │   └── AuthContext.jsx     # Login/register/logout state
+│       ├── pages/
+│       │   ├── Login.jsx
+│       │   ├── Register.jsx
+│       │   └── Dashboard.jsx
+│       ├── components/
+│       │   ├── VehicleCard.jsx
+│       │   ├── VehicleCardSkeleton.jsx  # Loading placeholder card
+│       │   ├── SearchBar.jsx
+│       │   ├── VehicleForm.jsx          # Admin add/edit modal
+│       │   ├── Toast.jsx                # Auto-dismissing notifications
+│       │   └── ProtectedRoute.jsx
+│       ├── App.jsx
+│       ├── main.jsx
+│       └── index.css
+├── screenshots/            # App screenshots referenced in this README
+├── README.md
+└── PROMPTS.md
 ```
 
 ## Setup Instructions
