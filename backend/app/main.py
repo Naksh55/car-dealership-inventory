@@ -1,0 +1,10 @@
+from fastapi import FastAPI
+from app.database import Base, engine
+from app.routes import auth, vehicles
+
+Base.metadata.create_all(bind=engine)
+
+app = FastAPI(title="Car Dealership Inventory System")
+
+app.include_router(auth.router)
+app.include_router(vehicles.router)
