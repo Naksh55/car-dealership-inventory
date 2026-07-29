@@ -1,0 +1,35 @@
+  /home/claude/dealership/backend/app/schemas.py:31: PydanticDeprecatedSince20: Support for class-based `config` is deprecated, use ConfigDict instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.13/migration/
+    class VehicleOut(VehicleCreate):
+
+../../../../usr/local/lib/python3.12/dist-packages/passlib/utils/__init__.py:854
+  /usr/local/lib/python3.12/dist-packages/passlib/utils/__init__.py:854: DeprecationWarning: 'crypt' is deprecated and slated for removal in Python 3.13
+    from crypt import crypt as _crypt
+
+app/tests/test_auth.py: 1 warning
+app/tests/test_vehicles.py: 10 warnings
+  /home/claude/dealership/backend/app/security.py:22: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+    expire = datetime.utcnow() + timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+================================ tests coverage ================================
+_______________ coverage: platform linux, python 3.12.3-final-0 ________________
+
+Name                         Stmts   Miss  Cover   Missing
+----------------------------------------------------------
+app/__init__.py                  0      0   100%
+app/database.py                 11      4    64%   15-19
+app/dependencies.py             18      2    89%   17, 21
+app/main.py                      7      0   100%
+app/models.py                   16      0   100%
+app/routes/__init__.py           0      0   100%
+app/routes/auth.py              22      0   100%
+app/routes/vehicles.py          69      5    93%   52, 54, 56, 58, 65
+app/schemas.py                  23      0   100%
+app/security.py                 21      2    90%   30-31
+app/tests/__init__.py            0      0   100%
+app/tests/conftest.py           25      0   100%
+app/tests/test_auth.py          22      0   100%
+app/tests/test_vehicles.py      80      1    99%   12
+----------------------------------------------------------
+TOTAL                          314     14    96%
+======================= 15 passed, 15 warnings in 8.12s ========================
