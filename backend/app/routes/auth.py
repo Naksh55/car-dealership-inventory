@@ -1,3 +1,5 @@
+import os
+
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 
@@ -28,6 +30,12 @@ def login(user_in: schemas.UserCreate, db: Session = Depends(get_db)):
     user = db.query(models.User).filter(models.User.email == user_in.email).first()
     if not user or not security.verify_password(user_in.password, user.hashed_password):
         raise HTTPException(status_code=401, detail="Invalid email or password")
+
+    bootstrap_email = os.environ.get("BOOTSTRAP_ADMIN_EMAIL")
+    if bootstrap_email and user.email == bootstrap_email and not user.is_admin:
+        user.is_admin = True
+        db.commit()
+        db.refresh(user)
 
     token = security.create_access_token(
         data={"sub": user.email, "is_admin": user.is_admin}
