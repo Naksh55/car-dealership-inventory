@@ -53,7 +53,7 @@ export default function VehicleCard({ vehicle, isAdmin, onPurchase, onEdit, onDe
             {outOfStock ? "Out of stock" : `${vehicle.quantity} in stock`}
           </p>
         </div>
-
+        {!isAdmin && (
         <button
           onClick={() => onPurchase(vehicle.id)}
           disabled={outOfStock}
@@ -62,6 +62,7 @@ export default function VehicleCard({ vehicle, isAdmin, onPurchase, onEdit, onDe
           <ShoppingCart size={16} />
           {outOfStock ? "Unavailable" : "Purchase"}
         </button>
+        )}
 
         {isAdmin && (
           <div className="flex gap-2 pt-3 border-t border-slate-100">
