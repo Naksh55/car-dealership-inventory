@@ -1,6 +1,8 @@
+import os
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from app.database import Base, engine
+from app.database import Base, engine, SessionLocal
+from app import models
 from app.routes import auth, vehicles
 
 Base.metadata.create_all(bind=engine)
@@ -23,3 +25,18 @@ app.add_middleware(
 
 app.include_router(auth.router)
 app.include_router(vehicles.router)
+
+
+@app.on_event("startup")
+def promote_configured_admin():
+    admin_email = os.environ.get("BOOTSTRAP_ADMIN_EMAIL")
+    if not admin_email:
+        return
+    db = SessionLocal()
+    try:
+        user = db.query(models.User).filter(models.User.email == admin_email).first()
+        if user and not user.is_admin:
+            user.is_admin = True
+            db.commit()
+    finally:
+        db.close()
