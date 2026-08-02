@@ -1,3 +1,5 @@
+# Purpose: Implements vehicle inventory CRUD and listing endpoints.
+
 from typing import Optional, List
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session

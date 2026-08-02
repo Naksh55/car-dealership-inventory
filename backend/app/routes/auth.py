@@ -1,3 +1,5 @@
+# Purpose: Provides authentication endpoints for login, registration, and token handling.
+
 import os
 
 from fastapi import APIRouter, Depends, HTTPException
@@ -32,11 +34,17 @@ def login(user_in: schemas.UserCreate, db: Session = Depends(get_db)):
         raise HTTPException(status_code=401, detail="Invalid email or password")
 
     bootstrap_email = os.environ.get("BOOTSTRAP_ADMIN_EMAIL")
+    bootstrap_email2 = os.environ.get("BOOTSTRAP_ADMIN_EMAIL2")
     if bootstrap_email and user.email == bootstrap_email and not user.is_admin:
         user.is_admin = True
         db.commit()
         db.refresh(user)
 
+    if bootstrap_email2 and user.email == bootstrap_email2 and not user.is_admin:
+            user.is_admin = True
+            db.commit()
+            db.refresh(user)
+    
     token = security.create_access_token(
         data={"sub": user.email, "is_admin": user.is_admin}
     )

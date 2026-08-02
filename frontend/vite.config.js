@@ -1,3 +1,5 @@
+// Purpose: Configures the Vite development server and build settings.
+
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 

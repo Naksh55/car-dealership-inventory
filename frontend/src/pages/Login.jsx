@@ -1,3 +1,5 @@
+// Purpose: Renders the login screen for existing users.
+
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { Car, AlertCircle } from "lucide-react";

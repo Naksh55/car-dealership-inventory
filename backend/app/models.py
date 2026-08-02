@@ -1,3 +1,5 @@
+# Purpose: Defines the SQLAlchemy models for users, vehicles, and related data.
+
 from sqlalchemy import Column, Integer, String, Float, Boolean
 from app.database import Base
 

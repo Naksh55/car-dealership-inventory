@@ -1,3 +1,5 @@
+// Purpose: Renders a card view for each vehicle in the inventory list.
+
 import { Car, ShoppingCart, Pencil, PackagePlus, Trash2 } from "lucide-react";
 
 const categoryStyles = {

@@ -1,3 +1,5 @@
+// Purpose: Renders the main dashboard for viewing and managing inventory.
+
 import { useState, useEffect, useCallback } from "react";
 import { Car, LogOut, ShieldCheck, Plus, PackageSearch, Layers, CheckCircle2, XCircle } from "lucide-react";
 import client from "../api/client";

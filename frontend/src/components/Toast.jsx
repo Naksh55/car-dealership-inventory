@@ -1,3 +1,5 @@
+// Purpose: Displays temporary success and error notifications in the UI.
+
 import { useEffect } from "react";
 import { CheckCircle2, XCircle, X } from "lucide-react";
 

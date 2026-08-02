@@ -1,3 +1,5 @@
+// Purpose: Stores authentication state and helper methods for the app.
+
 import { createContext, useContext, useState } from "react";
 import { jwtDecode } from "jwt-decode";
 import client from "../api/client";

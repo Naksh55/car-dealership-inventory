@@ -1,3 +1,5 @@
+# Purpose: Handles database connection setup and session management for the backend.
+
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, declarative_base
 

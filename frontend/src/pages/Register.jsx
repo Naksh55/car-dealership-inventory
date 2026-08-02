@@ -1,3 +1,5 @@
+// Purpose: Renders the registration screen for new users.
+
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { Car, AlertCircle, CheckCircle2 } from "lucide-react";

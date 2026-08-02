@@ -1,3 +1,5 @@
+// Purpose: Provides the form used to create and edit vehicle records.
+
 import { useState, useEffect } from "react";
 
 const emptyForm = { make: "", model: "", category: "", price: "", quantity: "" };

@@ -1,3 +1,5 @@
+# Purpose: Tests authentication behavior, access control, and token flows.
+
 def test_register_new_user_succeeds(client):
     response = client.post(
         "/api/auth/register",

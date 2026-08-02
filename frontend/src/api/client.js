@@ -1,3 +1,5 @@
+// Purpose: Provides the shared API client used for frontend requests.
+
 import axios from "axios";
 
 const API_BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:8000";

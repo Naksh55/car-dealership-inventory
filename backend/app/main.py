@@ -1,3 +1,5 @@
+# Purpose: Creates and configures the FastAPI application and registers API routes.
+
 import os
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware

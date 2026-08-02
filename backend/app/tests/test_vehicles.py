@@ -1,3 +1,5 @@
+# Purpose: Tests vehicle creation, updates, deletion, and inventory operations.
+
 import pytest
 
 

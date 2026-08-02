@@ -1,3 +1,5 @@
+// Purpose: Protects routes so only authenticated users can access them.
+
 import { Navigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 

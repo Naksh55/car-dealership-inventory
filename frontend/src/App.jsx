@@ -1,3 +1,5 @@
+// Purpose: Defines the main application layout and routing structure.
+
 import { Routes, Route, Navigate } from "react-router-dom";
 import { AuthProvider } from "./context/AuthContext";
 import ProtectedRoute from "./components/ProtectedRoute";

@@ -1,3 +1,5 @@
+# Purpose: Defines Pydantic schemas for validating API request and response payloads.
+
 from pydantic import BaseModel, EmailStr
 
 

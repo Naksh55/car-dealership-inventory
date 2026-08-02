@@ -1,3 +1,5 @@
+// Purpose: Provides a reusable search input for filtering inventory data.
+
 import { useState } from "react";
 import { Search, X } from "lucide-react";
 

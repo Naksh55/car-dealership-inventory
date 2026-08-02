@@ -1,3 +1,5 @@
+# Purpose: Lists the Python packages required to run the backend server.
+
 bcrypt==4.0.1
 ecdsa==0.19.2
 fastapi==0.140.11
