@@ -33,17 +33,13 @@ def login(user_in: schemas.UserCreate, db: Session = Depends(get_db)):
     if not user or not security.verify_password(user_in.password, user.hashed_password):
         raise HTTPException(status_code=401, detail="Invalid email or password")
 
-    bootstrap_email = os.environ.get("BOOTSTRAP_ADMIN_EMAIL")
-    bootstrap_email2 = os.environ.get("BOOTSTRAP_ADMIN_EMAIL2")
-    if bootstrap_email and user.email == bootstrap_email and not user.is_admin:
+    bootstrap_emails = os.environ.get("BOOTSTRAP_ADMIN_EMAILS", "")
+    bootstrap_list = [e.strip() for e in bootstrap_emails.split(",") if e.strip()]
+
+    if user.email in bootstrap_list and not user.is_admin:
         user.is_admin = True
         db.commit()
         db.refresh(user)
-
-    if bootstrap_email2 and user.email == bootstrap_email2 and not user.is_admin:
-            user.is_admin = True
-            db.commit()
-            db.refresh(user)
     
     token = security.create_access_token(
         data={"sub": user.email, "is_admin": user.is_admin}
